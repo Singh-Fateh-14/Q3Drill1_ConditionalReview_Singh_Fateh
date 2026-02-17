@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Average Finder</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <style>
+        :root {
+            --gold: #FFD700;
+            --black: #121212;
+            --surface: #1E1E1E;
+        }
+        body {
+            background-color: var(--black);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: var(--surface);
+            padding: 2.5rem;
+            border-radius: 4px;
+            border-left: 5px solid var(--gold);
+            width: 350px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            color: var(--gold);
+            margin-top: 0;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .input-box {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+            color: #888;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            background: #2A2A2A;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--gold);
+            color: black;
+            border: none;
+            font-weight: 800;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .output-section {
+            margin-top: 25px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .val {
+            color: var(--gold);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Simple Average Finder</h2>
+        
+        <div class="input-box">
+            <label>Score 1</label>
+            <input type="number" id="score1" placeholder="e.g. 87">
+        </div>
+
+        <div class="input-box">
+            <label>Score 2</label>
+            <input type="number" id="score2" placeholder="e.g. 93">
+        </div>
+
+        <button id="btn" py-click="calculate">Compute Results</button>
+
+        <div class="output-section">
+            <div class="row">
+                <span>Average:</span>
+                <span id="avg-display" class="val">0.0</span>
+            </div>
+            <div class="row">
+                <span>Passed?</span>
+                <span id="pass-display" class="val">---</span>
+            </div>
+        </div>
+    </div>
+
+    <py-config>
+        [[fetch]]
+        files = ["main.py"]
+    </py-config>
+    <script type="py" src="main.py"></script>
+
+</body>
+</html>
